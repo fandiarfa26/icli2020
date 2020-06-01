@@ -72,10 +72,10 @@
 										<ul class="dropdown" style="width:230px">
 											<li><a href="<?= site_url('organizing_commitee') ?>">Organizing Commitee</a>
 											</li>
-											<li><a href="<?= site_url('advisory_commitee') ?>">Advisory Commitee</a>
+											<!-- <li><a href="<?= site_url('advisory_commitee') ?>">Advisory Commitee</a>
 											</li>
 											<li><a href="<?= site_url('scientific_commitee') ?>">Scientific Commitee</a>
-											</li>
+											</li> -->
 										</ul>
 									</li>
 									<li><a href="#">Download</a>
