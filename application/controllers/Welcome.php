@@ -43,6 +43,14 @@ class Welcome extends CI_Controller {
 			'img'       => 'speaker-sachin.jpg',
 			'verified'  => true,
         ],
+        [
+            'name'      => 'Prof. Dr. Djoko Saryono, M.Pd.',
+            'cv'        => 'Universitas Negeri Malang',
+            'special'   => 'Indonesian Literature Education',
+            'country'   => 'Indonesia',
+			'img'       => 'speaker-djoko.jpg',
+			'verified'  => true,
+        ],
         
         
 	];

@@ -221,7 +221,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             <?php foreach ($speakers as $speaker) { ?>
             <!-- Single Speaker Area -->
-            <div class="col-12 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="single-speaker-area bg-gradient-overlay-2 wow fadeInUp" data-wow-delay="300ms">
                     <!-- Thumb -->
                     <div class="speaker-single-thumb">
@@ -229,7 +229,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <!-- Info -->
                     <div class="speaker-info">
-                        <h6><?= $speaker['name'] ?><?php if ($speaker['verified'] == true) { ?> <small>✔️</small> <?php } ?></h6>
+                        <h6><?= $speaker['name'] ?></h6>
                         
                     </div>
                 </div>
@@ -333,7 +333,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="ticket-icon">
                             <img src="<?= base_url('assets/guest/img/conference.png') ?>" alt="">
                         </div>
-                        <h4 class="ticket-price"><span>IDR</span>500.023</h4>
+                        <h4 class="ticket-price"><span>IDR</span>500.000</h4>
                         <!-- <a href="#!" class="btn confer-btn w-100 mb-30">Get Tickets <i class="zmdi zmdi-long-arrow-right"></i></a> -->
                         <!-- Ticket Pricing Table Details -->
                         <hr>
@@ -352,7 +352,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="ticket-icon">
                             <img src="<?= base_url('assets/guest/img/workshop.png') ?>" alt="">
                         </div>
-                        <h6 class="ticket-price"><span>IDR</span>500.023</h6>
+                        <h6 class="ticket-price"><span>IDR</span>500.000</h6>
                         <!-- <a href="#!" class="btn confer-btn w-100 mb-30">Get Tickets <i class="zmdi zmdi-long-arrow-right"></i></a> -->
                         <!-- Ticket Pricing Table Details -->
                         <hr>
@@ -371,7 +371,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="ticket-icon">
                             <img src="<?= base_url('assets/guest/img/both2.png') ?>" alt="">
                         </div>
-                        <h4 class="ticket-price"><span>IDR</span>750.023</h4>
+                        <h4 class="ticket-price"><span>IDR</span>750.000</h4>
                         <!-- <a href="#!" class="btn confer-btn w-100 mb-30">Get Tickets <i class="zmdi zmdi-long-arrow-right"></i></a> -->
                         <!-- Ticket Pricing Table Details -->
                         <hr>
@@ -391,7 +391,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="ticket-icon">
                             <img src="<?= base_url('assets/guest/img/participant.png') ?>" alt="">
                         </div>
-                        <h4 class="ticket-price"><span>IDR</span>50.023</h4>
+                        <h4 class="ticket-price"><span>IDR</span>50.000</h4>
                         <small style="color:#FF5400">Minimal Donation <br> for Covid19</small>
                         <!-- <a href="#!" class="btn confer-btn w-100 mb-30">Get Tickets <i class="zmdi zmdi-long-arrow-right"></i></a> -->
                         <!-- Ticket Pricing Table Details -->

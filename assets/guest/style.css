@@ -1402,6 +1402,8 @@ input:required {
     .single-speaker-area .speaker-single-thumb img {
       -webkit-transition-duration: 1500ms;
       -o-transition-duration: 1500ms;
+      -webkit-filter: grayscale(100%); 
+      filter: grayscale(100%); 
       transition-duration: 1500ms;
       border-radius: 10px;
       width: 100%; }
