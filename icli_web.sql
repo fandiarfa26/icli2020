@@ -1,253 +1,133 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: May 18, 2020 at 04:42 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 7.0.13
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `icli_web`
---
-
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               5.7.24 - MySQL Community Server (GPL)
+-- Server OS:                    Win64
+-- HeidiSQL Version:             10.2.0.5599
 -- --------------------------------------------------------
 
---
--- Table structure for table `2020_admin`
---
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-CREATE TABLE `2020_admin` (
-  `id` int(2) UNSIGNED NOT NULL,
+-- Dumping structure for table icli_web.2020_admin
+CREATE TABLE IF NOT EXISTS `2020_admin` (
+  `id` int(2) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `remember_token` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `remember_token` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `2020_admin`
---
+-- Dumping data for table icli_web.2020_admin: ~0 rows (approximately)
+/*!40000 ALTER TABLE `2020_admin` DISABLE KEYS */;
+REPLACE INTO `2020_admin` (`id`, `name`, `email`, `password`, `remember_token`) VALUES
+	(1, 'Admin', 'admin@icli.um.ac.id', '$2y$10$Xv9wDhkgYrer.4THF7w99eDh394UpufrRkMiaZNZ.bvVXBe/6Icnm', NULL);
+/*!40000 ALTER TABLE `2020_admin` ENABLE KEYS */;
 
-INSERT INTO `2020_admin` (`id`, `name`, `email`, `password`, `remember_token`) VALUES
-(1, 'Admin', 'admin@icli.um.ac.id', '$2y$10$Xv9wDhkgYrer.4THF7w99eDh394UpufrRkMiaZNZ.bvVXBe/6Icnm', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `2020_articles`
---
-
-CREATE TABLE `2020_articles` (
-  `id` int(11) UNSIGNED NOT NULL,
+-- Dumping structure for table icli_web.2020_articles
+CREATE TABLE IF NOT EXISTS `2020_articles` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `abstract_file` varchar(255) NOT NULL,
   `full_article_file` varchar(255) DEFAULT NULL,
   `author` varchar(255) DEFAULT NULL,
   `presenter` varchar(255) DEFAULT NULL,
   `presentation_place` varchar(255) DEFAULT NULL,
-  `status` int(1) NOT NULL DEFAULT '0' COMMENT '0:wait 1:accept 2:reject',
   `user_id` int(11) NOT NULL DEFAULT '0',
   `category_id` int(11) NOT NULL DEFAULT '0',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `2020_articles`
---
+-- Dumping data for table icli_web.2020_articles: ~0 rows (approximately)
+/*!40000 ALTER TABLE `2020_articles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `2020_articles` ENABLE KEYS */;
 
-INSERT INTO `2020_articles` (`id`, `title`, `abstract_file`, `full_article_file`, `author`, `presenter`, `presentation_place`, `status`, `user_id`, `category_id`, `created_at`) VALUES
-(0, 'wes kenek', 'abstract-S5-001-442-1.pdf', NULL, 'sek', 'cobak', NULL, 1, 4, 5, '2020-05-17 12:28:47');
+-- Dumping structure for table icli_web.2020_category
+CREATE TABLE IF NOT EXISTS `2020_category` (
+  `id` int(3) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+-- Dumping data for table icli_web.2020_category: ~8 rows (approximately)
+/*!40000 ALTER TABLE `2020_category` DISABLE KEYS */;
+REPLACE INTO `2020_category` (`id`, `name`) VALUES
+	(1, 'Digital Learning Strategies and Models'),
+	(2, 'Digital Learning Knowledge Management'),
+	(3, 'Smart MOOCS (Personalized, Ubiquitous, Gamified)'),
+	(4, 'Disruptive Media Learning'),
+	(5, 'Data Science for Education'),
+	(6, 'Distance Learning'),
+	(7, 'Character and Culture Building'),
+	(8, 'Resource Management Development');
+/*!40000 ALTER TABLE `2020_category` ENABLE KEYS */;
 
---
--- Table structure for table `2020_category`
---
-
-CREATE TABLE `2020_category` (
-  `id` int(3) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `2020_category`
---
-
-INSERT INTO `2020_category` (`id`, `name`) VALUES
-(1, 'Strategi dan Model Pembelajaran Digital'),
-(2, 'Manajemen Pengetahuan Pembelajaran Digital'),
-(3, 'Smart MOOCS (Personalized, Ubiquitous, Gamified)'),
-(4, 'Disruptive Media Learning'),
-(5, 'Data Science for Education'),
-(6, 'Distance Learning'),
-(7, 'Character and Culture Building'),
-(8, 'Resource Management Development');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `2020_important_date`
---
-
-CREATE TABLE `2020_important_date` (
-  `id` int(3) UNSIGNED NOT NULL,
+-- Dumping structure for table icli_web.2020_important_date
+CREATE TABLE IF NOT EXISTS `2020_important_date` (
+  `id` int(3) unsigned NOT NULL AUTO_INCREMENT,
   `activity` varchar(255) NOT NULL,
-  `dates` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `dates` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `2020_important_date`
---
+-- Dumping data for table icli_web.2020_important_date: ~6 rows (approximately)
+/*!40000 ALTER TABLE `2020_important_date` DISABLE KEYS */;
+REPLACE INTO `2020_important_date` (`id`, `activity`, `dates`) VALUES
+	(1, 'Online Abstract Submission Deadline', 'Juny 30, 2020'),
+	(2, 'Online Full Paper Submission Deadline', 'July 10, 2020'),
+	(3, 'Notification of Acceptance', 'July 15, 2020'),
+	(4, 'Early Bird Registration Deadline', 'July 30, 2020'),
+	(5, 'Regular Registration Deadline', 'August 15, 2020'),
+	(6, 'Conference Date', 'September 15, 2020'),
+	(7, 'Workshop', 'September 16, 2020');
+/*!40000 ALTER TABLE `2020_important_date` ENABLE KEYS */;
 
-INSERT INTO `2020_important_date` (`id`, `activity`, `dates`) VALUES
-(1, 'Online Abstract Submission Deadline', 'April 30, 2020'),
-(2, 'Online Full Paper Submission Deadline', 'May 10, 2020'),
-(3, 'Notification of Acceptance', 'May 10, 2020'),
-(4, 'Early Bird Registration Deadline', 'May 10, 2020'),
-(5, 'Regular Registration Deadline', 'May 30, 2020'),
-(6, 'Conference Date', 'Juny 29, 2020'),
-(7, 'Workshop', 'Juny 30, 2020');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `2020_payment`
---
-
-CREATE TABLE `2020_payment` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `cost` int(11) UNSIGNED DEFAULT NULL,
-  `status` int(1) UNSIGNED NOT NULL COMMENT '1: Wait; 2: Paid, 3: Reject',
+-- Dumping structure for table icli_web.2020_payment
+CREATE TABLE IF NOT EXISTS `2020_payment` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `cost` int(11) unsigned DEFAULT NULL,
+  `status` int(1) unsigned NOT NULL COMMENT '1: Wait; 2: Paid, 3: Reject',
   `proof_img` varchar(255) NOT NULL,
   `comment` text,
-  `user_id` int(11) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `user_id` int(11) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `2020_payment`
---
+-- Dumping data for table icli_web.2020_payment: ~0 rows (approximately)
+/*!40000 ALTER TABLE `2020_payment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `2020_payment` ENABLE KEYS */;
 
-INSERT INTO `2020_payment` (`id`, `cost`, `status`, `proof_img`, `comment`, `user_id`, `created_at`) VALUES
-(1, 250, 2, 'proof-pay-P0-001-248-1', 'Bagus', 2, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `2020_users`
---
-
-CREATE TABLE `2020_users` (
-  `id` int(11) UNSIGNED NOT NULL,
+-- Dumping structure for table icli_web.2020_users
+CREATE TABLE IF NOT EXISTS `2020_users` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(50) NOT NULL,
   `fullname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `institution` varchar(255) NOT NULL,
-  `local` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `local` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `phone` varchar(50) DEFAULT NULL,
-  `is_speaker` tinyint(1) UNSIGNED NOT NULL,
-  `category` int(3) UNSIGNED NOT NULL DEFAULT '0',
+  `is_speaker` tinyint(1) unsigned NOT NULL,
+  `category` int(3) unsigned NOT NULL DEFAULT '0',
   `email_verified_at` datetime DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `last_login` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `is_active` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `last_login` timestamp NULL DEFAULT NULL,
+  `is_active` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `2020_users`
---
+-- Dumping data for table icli_web.2020_users: ~2 rows (approximately)
+/*!40000 ALTER TABLE `2020_users` DISABLE KEYS */;
+REPLACE INTO `2020_users` (`id`, `code`, `fullname`, `email`, `institution`, `local`, `phone`, `is_speaker`, `category`, `email_verified_at`, `password`, `last_login`, `is_active`, `created_at`) VALUES
+	(1, 'S3-001-009-1', 'Speaker Fandi', 's_fandi@mail.com', 'UM', 1, '+62 895-3666-29281', 1, 3, '0000-00-00 00:00:00', '$2y$10$wh454IyJu.SPrjFOqTtDsOE/sO2TZMG.7mNdretuiF1JyiIeoIi2W', '2020-05-06 06:35:01', 1, '2020-05-04 07:16:31'),
+	(2, 'P0-001-248-1', 'Participant Fandi', 'p_fandi@mail.com', 'UM', 1, '+62 895-3666-29281', 0, 0, '0000-00-00 00:00:00', '$2y$10$ySOc9d8RZGPMvC91kI1pZO8R18h7OR24YylY1z6O.Yhdt5Jk5WEHW', '2020-05-06 06:28:19', 1, '2020-05-04 07:17:34');
+/*!40000 ALTER TABLE `2020_users` ENABLE KEYS */;
 
-INSERT INTO `2020_users` (`id`, `code`, `fullname`, `email`, `institution`, `local`, `phone`, `is_speaker`, `category`, `email_verified_at`, `password`, `last_login`, `is_active`, `created_at`) VALUES
-(1, 'S3-001-009-1', 'Speaker Fandi', 's_fandi@mail.com', 'UM', 1, '+62 895-3666-29281', 1, 3, '0000-00-00 00:00:00', '$2y$10$wh454IyJu.SPrjFOqTtDsOE/sO2TZMG.7mNdretuiF1JyiIeoIi2W', '2020-05-05 23:35:01', 1, '2020-05-04 00:16:31'),
-(2, 'P0-001-248-1', 'Participant Fandi', 'p_fandi@mail.com', 'UM', 1, '+62 895-3666-29281', 0, 0, '0000-00-00 00:00:00', '$2y$10$ySOc9d8RZGPMvC91kI1pZO8R18h7OR24YylY1z6O.Yhdt5Jk5WEHW', '2020-05-05 23:28:19', 1, '2020-05-04 00:17:34'),
-(3, 'P0-002-384-1', 'rizqiirfan', 'rizqiirfan23@gmail.com', 'UM', 1, '089680207062', 0, 0, '0000-00-00 00:00:00', '$2y$10$VdQ1G/cdNhA8QbKqnTNWt.DBUdqr/.wgpi7GZqg9vac2i8hmQMGtu', '2020-05-17 15:43:37', 1, '2020-05-06 23:34:06'),
-(4, 'S5-001-442-1', 'irfan', 'izqirfan1998@gmail.com', 'UM', 1, '089680207062', 1, 5, '0000-00-00 00:00:00', '$2y$10$IMW0/AvJA/yFNXkATlx25eDaktRqAO9smzZPRVd3ddkq02urLnhQe', '2020-05-17 07:38:36', 1, '2020-05-17 00:45:12');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `2020_admin`
---
-ALTER TABLE `2020_admin`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `2020_articles`
---
-ALTER TABLE `2020_articles`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `2020_category`
---
-ALTER TABLE `2020_category`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `2020_important_date`
---
-ALTER TABLE `2020_important_date`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `2020_payment`
---
-ALTER TABLE `2020_payment`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `2020_users`
---
-ALTER TABLE `2020_users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `2020_admin`
---
-ALTER TABLE `2020_admin`
-  MODIFY `id` int(2) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `2020_articles`
---
-ALTER TABLE `2020_articles`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `2020_category`
---
-ALTER TABLE `2020_category`
-  MODIFY `id` int(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `2020_important_date`
---
-ALTER TABLE `2020_important_date`
-  MODIFY `id` int(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `2020_payment`
---
-ALTER TABLE `2020_payment`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `2020_users`
---
-ALTER TABLE `2020_users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
