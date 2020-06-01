@@ -230,12 +230,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <!-- Info -->
                     <div class="speaker-info">
                         <h6><?= $speaker['name'] ?><?php if ($speaker['verified'] == true) { ?> <small>✔️</small> <?php } ?></h6>
-                        <p>
-                            <!-- <?= $speaker['cv'] ?> <br> -->
-                            <small><?= $speaker['special'] ?></small>
-                            
-                            <h6 style="color: white;"><?= $speaker['country'] ?></h6>
-                        </p>
+                        
                     </div>
                 </div>
             </div>
@@ -244,7 +239,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="col-12">
                 <div class="more-speaker-btn text-center mt-20 mb-40 wow fadeInUp" data-wow-delay="300ms">
-                    <a class="btn confer-btn-white" href="<?= site_url('keynote_speakers') ?>">View All Speakers <i
+                    <a class="btn confer-btn-white" href="<?= site_url('keynote_speakers') ?>">View Detail of Speakers <i
                             class="zmdi zmdi-long-arrow-right"></i></a>
                 </div>
             </div>

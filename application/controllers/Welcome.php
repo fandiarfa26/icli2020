@@ -28,7 +28,7 @@ class Welcome extends CI_Controller {
 			'verified'  => false,
         ],
 		[
-            'name'      => 'Assoc. Prof. Mazhar Javed Awan',
+            'name'      => 'Assist. Prof. Mazhar Javed Awan',
             'cv'        => 'University Management & Technology',
             'special'   => 'Data Science for Education',
             'country'   => 'Pakistan',
