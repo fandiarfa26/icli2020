@@ -84,7 +84,7 @@
 													Brochure</a></li>
 											<li><a href="<?= site_url('guide_book') ?>" target="_blank">Guide Book</a>
 											</li>
-											<li><a href="<?= site_url('article_template') ?>" target="_blank">Abstract
+											<li><a href="<?= site_url('article_template') ?>">Abstract
 													and Article Template</a></li>
 										</ul>
 									</li>

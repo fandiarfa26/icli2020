@@ -62,7 +62,8 @@ $route['venue']                 = 'welcome/venue';
 $route['organizing_commitee']   = 'welcome/organizingCommitee';
 $route['advisory_commitee']     = 'welcome/advisoryCommitee';
 $route['scientific_commitee']   = 'welcome/scientificCommitee';
-$route['brochure']          = 'welcome/brochure';
+$route['brochure']              = 'welcome/brochure';
+$route['article_template']      = 'welcome/article_template';
 $route['contribution']          = 'welcome/contribution';
 
 $route['choose_register']       = 'register/choose';

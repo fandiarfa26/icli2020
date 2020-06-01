@@ -107,6 +107,15 @@ class Welcome extends CI_Controller {
 		return base_url('assets/guest/img/poster_icli2020.jpeg');
 	}
 
+	public function article_template()
+	{
+		// load download helder
+        $this->load->helper('download');
+        // read file contents
+        $data = file_get_contents(base_url('assets/document/iMliNWymke.docx'));
+        force_download('Article Template ICLI.docx', $data);
+	}
+
 	public function contribution()
 	{
 		$this->load->view('contribution');
